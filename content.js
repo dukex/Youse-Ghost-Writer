@@ -1,8 +1,8 @@
 alert('asd');
-var parser = document.createElement('a');
-parser.href = tab.url;
+// var parser = document.createElement('a');
+// parser.href = tab.url;
 
-var path = parser.pathname,
+var path = location.pathname,
     delay = getValue('delay');
 
 function fill_in(name, value) {
@@ -19,7 +19,6 @@ function getValue(key) {
 
 if (!delay) {
   alert('Clique com o botão direito no ícone do plugin e salve os dados iniciais antes de prosseguir');
-  return;
 }
 
 if (path === "/auto/quotes/new") {
