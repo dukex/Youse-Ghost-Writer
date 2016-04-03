@@ -10,7 +10,7 @@
     "default_title": "Swish and flick!"
   },
   "background": {
-    "scripts": ["background.js", "jquery.js"]
+    "scripts": ["background.js"]
   },
   "permissions": [
     "tabs",
