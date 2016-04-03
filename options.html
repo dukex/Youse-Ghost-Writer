@@ -1,0 +1,344 @@
+﻿<html>
+  <head>
+    <title>Youse Ghost Writer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Lead</h2>
+    <dl>
+      <dt>Nome:</dt>
+      <dd><input id='leadName' /></dd>
+      <dt>Telefone:</dt>
+      <dd><input id='leadPhone' /></dd>
+      <dt>Email:</dt>
+      <dd><input id='leadEmail' /></dd>
+    </dl>
+    <hr />
+
+    <h2>Assegurado</h2>
+    <dl>
+      <dt>Nome:</dt>
+      <dd><input id='insuredPersonName' /></dd>
+      <dt>Cpf:</dt>
+      <dd><input id='insuredPersonCpf' /></dd>
+      <dt>Profissão:</dt>
+      <dd>
+        <select id='insuredPersonJobRole'>
+          <option value="999000">Administrador</option>
+          <option value="999001">Advogado</option>
+          <option value="999002">Agenciador de propaganda</option>
+          <option value="999003">Agente administrativo</option>
+          <option value="999004">Agente de servicos funerários e embalsamador</option>
+          <option value="999005">Agente de trânsito</option>
+          <option value="999006">Agente de viagem e guia de turismo</option>
+          <option value="999007">Agente penitenciário</option>
+          <option value="999008">Agricultor</option>
+          <option value="999010">Agropecuarista</option>
+          <option value="999009">Agrônomo</option>
+          <option value="999011">Alfaiate</option>
+          <option value="999012">Ambulante</option>
+          <option value="999013">Analista de sistemas</option>
+          <option value="999014">Aposentado (exceto funcionario público)</option>
+          <option value="999015">Arquiteto</option>
+          <option value="999016">Artesão(a)</option>
+          <option value="999017">Artista plástico</option>
+          <option value="999018">Assistente administrativo</option>
+          <option value="999019">Assistente social</option>
+          <option value="999020">Assistente tecnico de manutenão</option>
+          <option value="999021">Astrólogo</option>
+          <option value="999022">Astrônomo</option>
+          <option value="999023">Atleta profissional</option>
+          <option value="999024">Ator e diretor de espetáculos</option>
+          <option value="999025">Atuário</option>
+          <option value="999026">Autônomo</option>
+          <option value="999027">Auxiliar de escritório e assemelhados</option>
+          <option value="999028">Auxiliar de laboratório</option>
+          <option value="999029">Auxiliar de serviços gerais</option>
+          <option value="999030">Babá</option>
+          <option value="999031">Balconista</option>
+          <option value="999032">Bancário e economiário</option>
+          <option value="999033">Bibliotecario, arquivista, museólogo e arqueólogo</option>
+          <option value="999034">Biólogo e biomédico</option>
+          <option value="999035">Bolsista, estagiário e assemelhados</option>
+          <option value="999036">Bombeiro hidráulico</option>
+          <option value="999037">Bombeiro militar</option>
+          <option value="999038">Borracheiro</option>
+          <option value="999039">Cabeleireiro, barbeiro, esteticista, manicure, pedicure, depilador, maquiador</option>
+          <option value="999040">Camareiro(a)</option>
+          <option value="999041">Cantor e compositor</option>
+          <option value="999042">Carpinteiro</option>
+          <option value="999043">Cartógrafo</option>
+          <option value="999044">Chef de cozinha</option>
+          <option value="999045">Cineasta</option>
+          <option value="999046">Cobrador</option>
+          <option value="999047">Comandante e contramestre de embarcações</option>
+          <option value="999048">Comentarista de rádio e televisão</option>
+          <option value="999049">Comerciante</option>
+          <option value="999050">Comissário de bordo</option>
+          <option value="999051">Comunicólogo</option>
+          <option value="999052">Construtor civil</option>
+          <option value="999054">Consultor  técnico</option>
+          <option value="999053">Consultor comercial</option>
+          <option value="999055">Contador</option>
+          <option value="999056">Coreógrafo</option>
+          <option value="999057">Corretor de imóveis, seguros, títulos e valores</option>
+          <option value="999058">Costureiro(a)</option>
+          <option value="999059">Cozinheiro(a)</option>
+          <option value="999060">Decorador</option>
+          <option value="999061">Dedetizador</option>
+          <option value="999062">Delegado de polícia</option>
+          <option value="999063">Dentista</option>
+          <option value="999064">Desenhista comercial</option>
+          <option value="999065">Desenhista industrial</option>
+          <option value="999066">Desenhista técnico</option>
+          <option value="999067">Designer gráfico</option>
+          <option value="999068">Despachante, inclusive o aduaneiro</option>
+          <option value="999069">Diarista</option>
+          <option value="999070">Digitador</option>
+          <option value="999071">Diplomata</option>
+          <option value="999072">Diretor de empresas</option>
+          <option value="999073">Diretor de estabelecimento de ensino</option>
+          <option value="999075">Doceiro e confeiteiro</option>
+          <option value="999076">Economista</option>
+          <option value="999077">Eletricista e assemelhados</option>
+          <option value="999078">Empregado doméstico</option>
+          <option value="999079">Empresário</option>
+          <option value="999080">Enfermeiro</option>
+          <option value="999081">Engenheiro</option>
+          <option value="999082">Escultor, pintor e assemelhados</option>
+          <option value="999083">Estatístico</option>
+          <option value="999084">Estivivador, carregador, embalador</option>
+          <option value="999085">Estofador</option>
+          <option value="999086">Farmacêutico</option>
+          <option value="999087">Faxineiro(a)</option>
+          <option value="999088">Feirante</option>
+          <option value="999089">Filmador, cinegrafista, operador de câmera</option>
+          <option value="999091">Fisioterapeuta e terapeuta ocupacional</option>
+          <option value="999092">Fonoaudiólogo</option>
+          <option value="999093">Fotógrafo(a)</option>
+          <option value="999094">Fretista</option>
+          <option value="999095">Funcionário público civil aposentado</option>
+          <option value="999090">Físico</option>
+          <option value="999097">Garimpeiro</option>
+          <option value="999096">Garçom/garconete</option>
+          <option value="999098">Geógrafo</option>
+          <option value="999099">Geólogo</option>
+          <option value="999100">Governanta</option>
+          <option value="999101">Guarda civil municipal</option>
+          <option value="999102">Guia turistico</option>
+          <option value="999103">Industriário</option>
+          <option value="999104">Instrutor de auto escola</option>
+          <option value="999105">Instrutor de esportes radicais</option>
+          <option value="999106">Investidor (imóveis e aplicações financeiras)</option>
+          <option value="999107">Jardineiro</option>
+          <option value="999108">Joalheiros e ourives</option>
+          <option value="999109">Jornaleiro</option>
+          <option value="999110">Jornalista</option>
+          <option value="999111">Leiloeiro, avaliador e assemelhados</option>
+          <option value="999112">Locutor de rádio e televisão</option>
+          <option value="999113">Marceneiro</option>
+          <option value="999114">Massoterapeuta</option>
+          <option value="999115">Matemático</option>
+          <option value="999116">Mecânico  de veículos automotores</option>
+          <option value="999119">Mergulhador profissional</option>
+          <option value="999120">Metalurgico e siderúrgico</option>
+          <option value="999121">Meteorologista</option>
+          <option value="999122">Militar das forças armadas (inclusive aposentado)</option>
+          <option value="999123">Ministro de trib sup, magistrados e membros do ministério público</option>
+          <option value="999124">Modelo de modas</option>
+          <option value="999125">Motoboy</option>
+          <option value="999126">Motorista de veículos de transporte de carga</option>
+          <option value="999127">Motorista de veículos de transporte de passageiros</option>
+          <option value="999128">Mototaxista</option>
+          <option value="999117">Médico</option>
+          <option value="999129">Músico</option>
+          <option value="999130">Nutricionista</option>
+          <option value="999131">Operador de câmaras frias</option>
+          <option value="999132">Operador de telemarketing</option>
+          <option value="999074">Outra profissão</option>
+          <option value="999133">Padeiro</option>
+          <option value="999134">Paramédico</option>
+          <option value="999135">Pecuarista</option>
+          <option value="999136">Pedreiro</option>
+          <option value="999137">Pensionista</option>
+          <option value="999138">Perito contábil</option>
+          <option value="999139">Perito criminal</option>
+          <option value="999140">Pescador</option>
+          <option value="999141">Pesquisador</option>
+          <option value="999142">Piloto agrícola</option>
+          <option value="999143">Piloto de aviação comercial</option>
+          <option value="999144">Piloto de competição automobilística</option>
+          <option value="999145">Piloto de ensaios em vôo</option>
+          <option value="999146">Pintor de parede e assemelhados</option>
+          <option value="999147">Policial civil</option>
+          <option value="999148">Policial do senado, câmara e tribunais</option>
+          <option value="999149">Policial federal</option>
+          <option value="999150">Policial militar</option>
+          <option value="999151">Policial rodoviário federal</option>
+          <option value="999152">Porteiro edif, ascensorista, garagista</option>
+          <option value="999153">Pres rep, ministro de estado, governador, secretário, prefeito</option>
+          <option value="999154">Procurador e assemelhados</option>
+          <option value="999155">Professor</option>
+          <option value="999156">Profissionais da marinha mercante</option>
+          <option value="999157">Profissionais de letras e de artes</option>
+          <option value="999158">Profissional de dança</option>
+          <option value="999159">Profissional de hotelaria</option>
+          <option value="999160">Programador</option>
+          <option value="999161">Promotor de eventos</option>
+          <option value="999162">Protético</option>
+          <option value="999163">Psicólogo</option>
+          <option value="999164">Publicitário</option>
+          <option value="999165">Químico</option>
+          <option value="999166">Radialista</option>
+          <option value="999167">Radiologista</option>
+          <option value="999168">Recepcionista</option>
+          <option value="999169">Relações públicas</option>
+          <option value="999170">Relojoeiro</option>
+          <option value="999171">Representante comercial</option>
+          <option value="999172">Sacerdote ou membro de ordens ou seitas religiosas</option>
+          <option value="999173">Salgadeira</option>
+          <option value="999174">Sapateiro</option>
+          <option value="999175">Secretária(o)</option>
+          <option value="999176">Securitário</option>
+          <option value="999177">Segurança  e vigilante</option>
+          <option value="999118">Senador da república, deputado fed. e est, vereador</option>
+          <option value="999178">Serralheiro</option>
+          <option value="999179">Servente</option>
+          <option value="999180">Serventuário de justica</option>
+          <option value="999181">Servidor público estadual</option>
+          <option value="999182">Servidor público federal</option>
+          <option value="999183">Servidor público municipal</option>
+          <option value="999184">Sociólogo</option>
+          <option value="999185">Tabelião</option>
+          <option value="999186">Taxista</option>
+          <option value="999194">Telefonista</option>
+          <option value="999195">Terapeuta</option>
+          <option value="999196">Topógrafo</option>
+          <option value="999197">Tratorista</option>
+          <option value="999188">Técnico de contabilidade</option>
+          <option value="999189">Técnico de laboratório e raios x</option>
+          <option value="999190">Técnico em agronomia</option>
+          <option value="999191">Técnico em desportos</option>
+          <option value="999187">Técnico em eletricidade, eletrônica e telecomunicações</option>
+          <option value="999192">Técnico em manutencao de microcomputador</option>
+          <option value="999193">Técnico em processamento de dados</option>
+          <option value="999198">Vendedor de comércio varejista e atacadista</option>
+          <option value="999199">Veterinário</option>
+          <option value="999200">Vigia</option>
+          <option value="999201">Webdesigner</option>
+          <option value="999202">Zelador</option>
+          <option value="999203">Zootecnista</option>
+        </select>
+      </dd>
+      <dt>Salário:</dt>
+      <dd>
+        <select id='insuredPersonSalaryRange'>
+          <option value="Minimum">Até R$ 800,00</option>
+          <option value="Band1">De R$ 800,01 a R$ 2.500,00</option>
+          <option value="Band2">De R$ 2.500,01 a R$ 4.500,00</option>
+          <option value="Band3">De R$ 4.500,01 a R$ 7.000,00</option>
+          <option value="Band4">Acima de R$ 7.000,00</option>
+        </select>
+      </dd>
+      <dt>Número do endereço:</dt>
+      <dd><input id='insuredPersonAddressNumber' /></dd>
+      <dt>Gênero:</dt>
+      <dd>
+        <select id='insuredPersonGender'>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+        </select>
+      </dd>
+      <dt>Data de nascimento:</dt>
+      <dd><input id='insuredPersonDateOfBirth' /></dd>
+    </dl>
+    <hr />
+
+    <h2>Carro</h2>
+    <dl>
+      <dt>Marca:</dt>
+      <dd><input id='make' /></dd>
+      <dt>Modelo:</dt>
+      <dd><input id='model' /></dd>
+      <dt>Versão:</dt>
+      <dd><input id='version' /></dd>
+      <dt>Ano:</dt>
+      <dd><input id='year' /></dd>
+      <dt>Novo?:</dt>
+      <dd>
+        <select id='vehicleBrandNew'>
+          <option value="zero_km_with_license_plate">é 0km e já tem placa</option>
+          <option value="zero_km_without_license_plate">é 0km e não tem placa</option>
+          <option value="not_zero_km">não é 0km</option>
+        </select>
+      </dd>
+      <dt>Tipo de uso:</dt>
+      <dd>
+        <select id='vehicleUsage'>
+          <option selected="selected" value="auto|private">Particular</option>
+          <option value="auto|private and commercial use">Particular e Uso Comercial</option>
+          <option value="auto|commercial representative/sales">Representante Comercial/Vendas</option>
+          <option value="auto|taxi">Taxi</option>
+          <option value="auto|cargo transport">Transporte de Carga</option>
+          <option value="auto|people transport">Transporte de Pessoas</option>
+          <option value="auto|others">Outros</option>
+        </select>
+      </dd>
+      <dt>Cep onde o carro "dorme":</dt>
+      <dd><input id='vehicleCep' /></dd>
+      <dt>Placa:</dt>
+      <dd><input id='vehicleLicensePlate' /></dd>
+    </dl>
+    <hr />
+
+    <h2>Motorista principal</h2>
+    <dl>
+      <dt>Gênero</dt>
+      <dd>
+        <select id='driverGender'>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+        </select>
+      </dd>
+      <dt>Data de nascimento:</dt>
+      <dd><input id='driverDateOfBirth' /></dd>
+      <dt>Anos sem sinistro:</dt>
+      <dd><input id='driverLastClaim' /></dd>
+    </dl>
+    <hr />
+
+    <h2>Imóvel</h2>
+    <dl>
+      <dt>Uso:</dt>
+      <dd>
+        <select id='propertyTypeUsage'>
+          <option value="house|habitual">uma casa</option>
+          <option value="house|vacation">uma casa de veraneio</option>
+          <option value="apartment|habitual">um apartamento</option>
+          <option value="apartment|vacation">um apartamento de veraneio</option>
+        </select>
+      </dd>
+      <dt>Valor:</dt>
+      <dd><input id='propertyValue' /></dd>
+      <dt>Cep:</dt>
+      <dd><input id='propertyCep' /></dd>
+    </dl>
+
+    <hr />
+    <h2>Gerais</h2>
+    <dl>
+      <dt>Delay: (aumente esse valor se o preenchimento estiver falhando)</dt>
+      <dd><input id='delay' value='800'/></dd>
+    </dl>
+
+    <input type='hidden' id='vehicleCollected' />
+    <input type='hidden' id='vehiclePurchased' />
+    <input type='hidden' id='vehicleBulletProof' />
+
+    <p>
+      <button id='save'>Salvar</button>
+    </p>
+
+    <script src="options.js"></script>
+  </body>
+</html>
