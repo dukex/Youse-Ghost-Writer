@@ -10,13 +10,13 @@ var attributes = {
   insuredPersonSalaryRange: 'Band4',
   insuredPersonAddressNumber: '500',
   insuredPersonGender: 'M',
-  insuredPersonDateOfBirth: '01/01/1990',
+  insuredPersonDateOfBirth: '01/01/1980',
 
   // AUTO
-  make: 'CHEVROLET',
-  model: 'CELTA',
-  version: 'CELTA SPIRIT / LT 1.0 MPFI 8V FLEXP. 5P (Flex)',
-  year: '2015',
+  vehicleMake: 'CHEVROLET',
+  vehicleModel: 'CELTA',
+  vehicleVersion: 'CELTA SPIRIT / LT 1.0 MPFI 8V FLEXP. 5P (Flex)',
+  vehicleYear: '2015',
 
   vehicleBrandNew: 'zero_km_with_license_plate',
   vehicleUsage: 'auto|private',
@@ -27,7 +27,7 @@ var attributes = {
   vehicleBulletProof: 'false',
 
   driverGender: 'M',
-  driverDateOfBirth: '01/01/1990',
+  driverDateOfBirth: '01/01/1980',
   driverLastClaim: 5,
 
   // HOME
@@ -36,13 +36,18 @@ var attributes = {
   propertyCep: '08461-660'
 }
 
+var keyPrefix = "YOUSE__";
+
 // Saves options to chrome.storage
 function save_options() {
+  chrome.storage.sync.clear();
+  var savedOptions = {};
+
   for (var key in attributes) {
-    attributes[key] = document.getElementById(key).value;
+    savedOptions[keyPrefix + key] = document.getElementById(key).value;
   }
 
-  chrome.storage.sync.set(attributes, function() {
+  chrome.storage.sync.set(savedOptions, function() {
     alert('Dados salvos com sucesso');
   });
 }
@@ -52,7 +57,7 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get(null, function(items) {
     for (var key in attributes) {
-      document.getElementById(key).value = items[key] || attributes[key];
+      document.getElementById(key).value = items[keyPrefix + key] || attributes[key];
     }
   });
 }

@@ -3,18 +3,19 @@ var attributes = {};
 chrome.storage.sync.get(null, function(items) {
   attributes = items;
 
-  if (!attributes.delay) {
+  var path = location.pathname,
+  keyPrefix = "YOUSE__",
+  delay = getValue('delay');
+
+  if (!delay) {
     alert('Clique com o botão direito no ícone do plugin e salve os dados iniciais antes de prosseguir');
     return;
   }
 
-  var path = location.pathname,
-      delay = getValue('delay');
-
   function fill_in(name, value) {
     var element = $('[name="' + name + '"]')
     element.val(value);
-    element[0].dispatchEvent(new KeyboardEvent("keyup"))
+    element[0].dispatchEvent(new KeyboardEvent("keyup"));
   }
 
   function select(name, value) {
@@ -23,7 +24,7 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   function getValue(key) {
-    return attributes[key];
+    return attributes[keyPrefix + key];
   }
 
   if (path === "/auto/quotes/new") {
@@ -33,13 +34,13 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   if (path === "/auto/quotes/vehicles/edit") {
-    select('auto_quote[vehicle][make]', getValue('make'));
+    select('auto_quote[vehicle][make]', getValue('vehicleMake'));
     setTimeout(function(){
-      select('auto_quote[vehicle][model]', getValue('model'));
+      select('auto_quote[vehicle][model]', getValue('vehicleModel'));
       setTimeout(function(){
-        select('auto_quote[vehicle][year]', getValue('year'));
+        select('auto_quote[vehicle][year]', getValue('vehicleYear'));
         setTimeout(function(){
-          select('auto_quote[vehicle][version]', getValue('version'));
+          select('auto_quote[vehicle][version]', getValue('vehicleVersion'));
           select('auto_quote[vehicle][brand_new]', getValue('vehicleBrandNew'));
           select('auto_quote[vehicle][usage]', getValue('vehicleUsage'));
           select('auto_quote[vehicle][purchased]', getValue('vehiclePurchased'));
@@ -48,6 +49,11 @@ chrome.storage.sync.get(null, function(items) {
           select('auto_quote[vehicle][collected]', getValue('vehicleCollected'));
           select('auto_quote[driver][gender]', getValue('driverGender'));
           fill_in('auto_quote[driver][date_of_birth]', getValue('driverDateOfBirth'));
+
+          $.each($('[data-narrative-form-triggered-by="driver_date_of_birth"]'), function() {
+            $(this).addClass('narrative-form__field--revealed');
+          });
+
           select('auto_quote[driver][years_since_last_claim]', getValue('driverLastClaim'));
         }, delay);
       }, delay);
