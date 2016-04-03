@@ -17,6 +17,7 @@ chrome.storage.sync.get(null, function(items) {
     $.each(elements, function() {
       $(this).val(value);
       $(this)[0].dispatchEvent(new KeyboardEvent("keyup"));
+      $(this)[0].dispatchEvent(new KeyboardEvent("input"));
     });
   }
 
@@ -31,6 +32,12 @@ chrome.storage.sync.get(null, function(items) {
 
   function getValue(key) {
     return attributes[keyPrefix + key];
+  }
+
+  function trigger(triggerName) {
+    $.each($('[data-narrative-form-triggered-by="' + triggerName + '"]'), function() {
+      $(this).addClass('narrative-form__field--revealed');
+    });
   }
 
   if (path === '/auto/quotes/new') {
@@ -55,11 +62,7 @@ chrome.storage.sync.get(null, function(items) {
           select('auto_quote[vehicle][collected]', getValue('vehicleCollected'));
           select('auto_quote[driver][gender]', getValue('driverGender'));
           fill_in('auto_quote[driver][date_of_birth]', getValue('driverDateOfBirth'));
-
-          $.each($('[data-narrative-form-triggered-by="driver_date_of_birth"]'), function() {
-            $(this).addClass('narrative-form__field--revealed');
-          });
-
+          trigger('driver_date_of_birth');
           select('auto_quote[driver][years_since_last_claim]', getValue('driverLastClaim'));
         }, delay);
       }, delay);
@@ -115,28 +118,18 @@ chrome.storage.sync.get(null, function(items) {
     fill_in('life_quote[lead_person_attributes][phone]', getValue('leadPhone'));
     fill_in('life_quote[lead_person_attributes][email]', getValue('leadEmail'));
     fill_in('life_quote[insured_person][date_of_birth]', getValue('insuredPersonDateOfBirth'));
-
-    $.each($('[data-narrative-form-triggered-by="insured_person_date_of_birth"]'), function() {
-      $(this).addClass('narrative-form__field--revealed');
-    });
-
+    trigger('insured_person_date_of_birth');
     select('life_quote[insured_person][job_role]', getValue('insuredPersonJobRole'));
     select('life_quote[insured_person][salary_range]', getValue('insuredPersonSalaryRange'));
-
-
-
   }
 
   if (path === '/life/proposals/insured_people/edit') {
     fill_in('life_quote[insured_person][name]', getValue('insuredPersonName'));
     fill_in('life_quote[insured_person][cpf]', getValue('insuredPersonCpf'));
+    trigger('insured_person_cpf');
     select('life_quote[insured_person][gender]', getValue('insuredPersonGender'));
     fill_in('life_quote[address][cep]', getValue('insuredPersonCep'));
-
-    $.each($('[data-narrative-form-triggered-by="mailing_address_cep"]'), function() {
-      $(this).addClass('narrative-form__field--revealed');
-    });
-
+    trigger('mailing_address_cep');
     fill_in('life_quote[address][number]', getValue('insuredPersonAddressNumber'));
     fill_in('life_quote[address][full_address]', 'XPTO');
     fill_in('life_quote[address][neighborhood]', 'Jardins');
