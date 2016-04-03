@@ -1,5 +1,5 @@
 var attributes = {
-  delay: 800,
+  delay: 500,
   leadName: 'John Doe',
   leadPhone: '(11) 11111-1111',
   leadEmail: 'fakemail@gmail.com',
@@ -39,18 +39,22 @@ var attributes = {
 // Saves options to chrome.storage
 function save_options() {
   for (var key in attributes) {
-    localStorage[key] = document.getElementById(key).value;
+    attributes[key] = document.getElementById(key).value;
   }
 
-  alert('Dados salvos com sucesso');
+  chrome.storage.sync.set(attributes, function() {
+    alert('Dados salvos com sucesso');
+  });
 }
 
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  for (var key in attributes) {
-    document.getElementById(key).value = localStorage[key] || attributes[key];
-  }
+  chrome.storage.sync.get(null, function(items) {
+    for (var key in attributes) {
+      document.getElementById(key).value = items[key] || attributes[key];
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);

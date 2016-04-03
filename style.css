@@ -1,3 +1,25 @@
 dd {
-  margin-left: 0
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+dt {
+  font-size: 15px;
+}
+
+#content {
+  margin-left: 275px;
+}
+
+.big-youse {
+  display: block;
+  position: fixed;
+  top: 12%;
+  left: 0;
+  bottom: 0;
+  height: 88%;
+  z-index: 2;
+  opacity: 1;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
