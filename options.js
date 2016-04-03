@@ -11,6 +11,7 @@ var attributes = {
   insuredPersonAddressNumber: '500',
   insuredPersonGender: 'M',
   insuredPersonDateOfBirth: '01/01/1980',
+  insuredPersonCep: '08461-660',
 
   // AUTO
   vehicleMake: 'CHEVROLET',
@@ -32,8 +33,13 @@ var attributes = {
 
   // HOME
   propertyTypeUsage: 'house|habitual',
-  propertyValue: '500.000',
-  propertyCep: '08461-660'
+  propertyValue: 'R$ 500.000',
+  propertyCep: '08461-660',
+
+  // LIFE
+  beneficiaryName: 'Jane Roe',
+  beneficiaryRelationship: 'father',
+  beneficiaryCompensation: '100,00%'
 }
 
 var keyPrefix = "YOUSE__";

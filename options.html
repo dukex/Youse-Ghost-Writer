@@ -254,6 +254,8 @@
         </dd>
         <dt>Data de nascimento:</dt>
         <dd><input id='insuredPersonDateOfBirth' /></dd>
+        <dt>Cep:</dt>
+        <dd><input id='insuredPersonCep' /></dd>
       </dl>
       <hr />
 
@@ -326,8 +328,28 @@
         <dt>Cep:</dt>
         <dd><input id='propertyCep' /></dd>
       </dl>
-
       <hr />
+
+      <h2>Beneficiário</h2>
+      <dl>
+        <dt>Nome:</dt>
+        <dd><input id='beneficiaryName' /></dd>
+        <dt>Parentesco:</dt>
+        <dd>
+          <select id='beneficiaryRelationship'>
+            <option value="father">Pai</option>
+            <option value="daughter">Filha</option>
+            <option value="son">Filho</option>
+            <option value="sister">Irmã</option>
+            <option value="brother">Irmão</option>
+            <option value="spouse">Cônjuge</option>
+            <option value="other">Outros</option>
+          </select>
+        </dd>
+        <dt>Compensação:</dt>
+        <dd><input id='beneficiaryCompensation' /></dd>
+      </dl>
+
       <h2>Gerais</h2>
       <dl>
         <dt>Delay: (aumente esse valor se o preenchimento estiver falhando)</dt>

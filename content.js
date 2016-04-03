@@ -13,27 +13,33 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   function fill_in(name, value) {
-    var element = $('[name="' + name + '"]')
-    element.val(value);
-    element[0].dispatchEvent(new KeyboardEvent("keyup"));
+    var elements = $('[name="' + name + '"]');
+    $.each(elements, function() {
+      $(this).val(value);
+      $(this)[0].dispatchEvent(new KeyboardEvent("keyup"));
+    });
   }
 
   function select(name, value) {
-    var element = $('[name="' + name + '"]').val(value);
-    element[0].dispatchEvent(new KeyboardEvent("change"))
+    var elements = $('[name="' + name + '"]');
+    $.each(elements, function() {
+      $(this).val(value);
+      $(this)[0].dispatchEvent(new KeyboardEvent("change"));
+      $(this)[0].dispatchEvent(new KeyboardEvent("input"));
+    });
   }
 
   function getValue(key) {
     return attributes[keyPrefix + key];
   }
 
-  if (path === "/auto/quotes/new") {
+  if (path === '/auto/quotes/new') {
     fill_in('auto_quote[lead_person_attributes][name]', getValue('leadName'));
     fill_in('auto_quote[lead_person_attributes][phone]', getValue('leadPhone'));
     fill_in('auto_quote[lead_person_attributes][email]', getValue('leadEmail'));
   }
 
-  if (path === "/auto/quotes/vehicles/edit") {
+  if (path === '/auto/quotes/vehicles/edit') {
     select('auto_quote[vehicle][make]', getValue('vehicleMake'));
     setTimeout(function(){
       select('auto_quote[vehicle][model]', getValue('vehicleModel'));
@@ -73,18 +79,17 @@ chrome.storage.sync.get(null, function(items) {
     select('auto_quote[vehicle][bullet_proof]', getValue('vehicleBulletProof'));
   }
 
-  if (path === '/auto/payments/new' || path === '/home/proposals/payments/new') {
-    fill_in('credit_card_payment[credit_card][number]', getValue('4111 1111 1111 1111'));
-    fill_in('credit_card_payment[credit_card][name]', getValue('John Doe'));
-    select('credit_card_payment[credit_card][due_date_month]', getValue('5'));
-    select('credit_card_payment[credit_card][due_date_year]', getValue('2018'));
-    fill_in('credit_card_payment[credit_card][cvv_number]', getValue('123'));
+  if (path === '/auto/payments/new' || path === '/home/proposals/payments/new' || path === '/life/proposals/payments/new') {
+    fill_in('credit_card_payment[credit_card][number]', '4111 1111 1111 1111');
+    fill_in('credit_card_payment[credit_card][name]', 'John Doe');
+    select('credit_card_payment[credit_card][due_date_month]', '5');
+    select('credit_card_payment[credit_card][due_date_year]', '2018');
+    fill_in('credit_card_payment[credit_card][cvv_number]', '123');
     $('[name="credit_card_payment[terms_of_service]"]').prop('checked', true);
   }
 
   if (path === '/home/quotes/new') {
     fill_in('home_quote[lead_person_attributes][name]', getValue('leadName'));
-    alert('olá2');
     fill_in('home_quote[lead_person_attributes][phone]', getValue('leadPhone'));
     fill_in('home_quote[lead_person_attributes][email]', getValue('leadEmail'));
 
@@ -110,7 +115,38 @@ chrome.storage.sync.get(null, function(items) {
     fill_in('life_quote[lead_person_attributes][phone]', getValue('leadPhone'));
     fill_in('life_quote[lead_person_attributes][email]', getValue('leadEmail'));
     fill_in('life_quote[insured_person][date_of_birth]', getValue('insuredPersonDateOfBirth'));
+
+    $.each($('[data-narrative-form-triggered-by="insured_person_date_of_birth"]'), function() {
+      $(this).addClass('narrative-form__field--revealed');
+    });
+
     select('life_quote[insured_person][job_role]', getValue('insuredPersonJobRole'));
     select('life_quote[insured_person][salary_range]', getValue('insuredPersonSalaryRange'));
+
+
+
+  }
+
+  if (path === '/life/proposals/insured_people/edit') {
+    fill_in('life_quote[insured_person][name]', getValue('insuredPersonName'));
+    fill_in('life_quote[insured_person][cpf]', getValue('insuredPersonCpf'));
+    select('life_quote[insured_person][gender]', getValue('insuredPersonGender'));
+    fill_in('life_quote[address][cep]', getValue('insuredPersonCep'));
+
+    $.each($('[data-narrative-form-triggered-by="mailing_address_cep"]'), function() {
+      $(this).addClass('narrative-form__field--revealed');
+    });
+
+    fill_in('life_quote[address][number]', getValue('insuredPersonAddressNumber'));
+    fill_in('life_quote[address][full_address]', 'XPTO');
+    fill_in('life_quote[address][neighborhood]', 'Jardins');
+    fill_in('life_quote[address][city]', 'SAO PAULO');
+    fill_in('life_quote[address][state]', 'SP');
+  }
+
+  if (path === '/life/proposals/beneficiaries/new') {
+    fill_in('life_quote[beneficiaries][][name]', getValue('beneficiaryName'));
+    fill_in('life_quote[beneficiaries][][relationship]', getValue('beneficiaryRelationship'));
+    fill_in('life_quote[beneficiaries][][compensation]', getValue('beneficiaryCompensation'));
   }
 });
