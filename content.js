@@ -8,7 +8,7 @@ chrome.storage.sync.get(null, function(items) {
   delay = getValue('delay');
 
   if (!delay) {
-    alert('Clique com o botão direito no ícone do plugin e salve os dados iniciais antes de prosseguir');
+    alert('Clique com o botão direito no ícone do plugin, vá em options e salve os dados iniciais antes de prosseguir');
     return;
   }
 
