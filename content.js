@@ -16,9 +16,11 @@ chrome.storage.sync.get(null, function(items) {
     var elements = $('[name="' + name + '"]');
     $.each(elements, function() {
       $(this).val(value);
-      $(this)[0].dispatchEvent(new KeyboardEvent("keyup"));
       $(this)[0].dispatchEvent(new KeyboardEvent("input"));
+      $(this)[0].dispatchEvent(new KeyboardEvent("keyup"));
     });
+
+    return elements;
   }
 
   function select(name, value) {
@@ -28,6 +30,17 @@ chrome.storage.sync.get(null, function(items) {
       $(this)[0].dispatchEvent(new KeyboardEvent("change"));
       $(this)[0].dispatchEvent(new KeyboardEvent("input"));
     });
+
+    return elements;
+  }
+
+  function setJobRole(name, value) {
+    var elements = fill_in(name, value);
+    setTimeout(function(){
+      $('.job-roles-autocomplete__item.ui-menu-item').trigger('click');
+    }, delay);
+
+    return elements;
   }
 
   function getValue(key) {
@@ -69,10 +82,10 @@ chrome.storage.sync.get(null, function(items) {
     }, delay);
   }
 
-  if (path === '/auto/proposals/insured_people/edit') {
+  if (path === '/auto/proposals/insured_people/edit' || path === '/auto/proposals/insured_people') {
     fill_in('auto_quote[insured_person][name]', getValue('insuredPersonName'));
     fill_in('auto_quote[insured_person][cpf]', getValue('insuredPersonCpf'));
-    select('auto_quote[insured_person][job_role]', getValue('insuredPersonJobRole'));
+    setJobRole('auto_quote[insured_person][job_role_name]', getValue('insuredPersonJobRole'));
     select('auto_quote[insured_person][salary_range]', getValue('insuredPersonSalaryRange'));
     fill_in('auto_quote[insured_person_address][number]', getValue('insuredPersonAddressNumber'));
   }
@@ -105,7 +118,7 @@ chrome.storage.sync.get(null, function(items) {
     select('home_proposal[insured_person][gender]', getValue('insuredPersonGender'));
     fill_in('home_proposal[insured_person][cpf]', getValue('insuredPersonCpf'));
     fill_in('home_proposal[insured_person][date_of_birth]', getValue('insuredPersonDateOfBirth'));
-    select('home_proposal[insured_person][job_role]', getValue('insuredPersonJobRole'));
+    setJobRole('home_proposal[insured_person][job_role_name]', getValue('insuredPersonJobRole'));
     select('home_proposal[insured_person][salary_range]', getValue('insuredPersonSalaryRange'));
   }
 
@@ -119,7 +132,7 @@ chrome.storage.sync.get(null, function(items) {
     fill_in('life_quote[lead_person_attributes][email]', getValue('leadEmail'));
     fill_in('life_quote[insured_person][date_of_birth]', getValue('insuredPersonDateOfBirth'));
     trigger('insured_person_date_of_birth');
-    select('life_quote[insured_person][job_role]', getValue('insuredPersonJobRole'));
+    setJobRole('life_quote[insured_person][job_role_name]', getValue('insuredPersonJobRole'));
     select('life_quote[insured_person][salary_range]', getValue('insuredPersonSalaryRange'));
   }
 

@@ -6,7 +6,7 @@ var attributes = {
 
   insuredPersonName: 'John Doe',
   insuredPersonCpf: '427.848.588-39',
-  insuredPersonJobRole: '999201',
+  insuredPersonJobRole: 'Webdesigner',
   insuredPersonSalaryRange: 'Band4',
   insuredPersonAddressNumber: '500',
   insuredPersonGender: 'M',
