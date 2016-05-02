@@ -16,7 +16,7 @@ var attributes = {
   // AUTO
   vehicleMake: 'CHEVROLET',
   vehicleModel: 'CELTA',
-  vehicleVersion: 'CELTA SPIRIT / LT 1.0 MPFI 8V FLEXP. 5P (Flex)',
+  vehicleVersion: 'CELTA SPIRIT / LT 1.0 MPFI 8V FLEXP. 5P (Gasolina / Flex)',
   vehicleYear: '2015',
 
   vehicleBrandNew: 'zero_km_with_license_plate',
