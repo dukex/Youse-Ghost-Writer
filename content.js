@@ -134,6 +134,12 @@ chrome.storage.sync.get(null, function(items) {
     trigger('insured_person_date_of_birth');
     setJobRole('life_quote[insured_person][job_role_name]', getValue('insuredPersonJobRole'));
     select('life_quote[insured_person][salary_range]', getValue('insuredPersonSalaryRange'));
+    select('life_quote[insured_person][has_mate]', getValue('insuredPersonHasMate'));
+    if (getValue('insuredPersonHasMate') === 'yes') {
+      fill_in('life_quote[insured_person_mate][date_of_birth]', getValue('insuredPersonMateDateOfBirth'));
+      trigger('insured_person_mate_date_of_birth');
+      setJobRole('life_quote[insured_person_mate][job_role_name]', getValue('insuredPersonMateJobRole'));
+    }
   }
 
   if (path === '/life/proposals/insured_people/edit') {

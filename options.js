@@ -37,6 +37,10 @@ var attributes = {
   propertyCep: '08461-660',
 
   // LIFE
+  insuredPersonHasMate: 'yes',
+  insuredPersonMateDateOfBirth: '31/12/1980',
+  insuredPersonMateJobRole: 'Professor',
+
   beneficiaryName: 'Jane Roe',
   beneficiaryRelationship: 'father',
   beneficiaryCompensation: '100,00%'

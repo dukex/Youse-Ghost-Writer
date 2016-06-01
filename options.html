@@ -121,6 +121,22 @@
       </dl>
       <hr />
 
+      <h2>Cônjuge</h2>
+      <dl>
+        <dt>É casado:</dt>
+        <dd>
+          <select id='insuredPersonHasMate'>
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </dd>
+        <dt>Data de nascimento:</dt>
+        <dd><input id='insuredPersonMateDateOfBirth' /></dd>
+        <dt>Profissão:</dt>
+        <dd><input id='insuredPersonMateJobRole' /></dd>
+      </dl>
+      <hr />
+
       <h2>Beneficiário</h2>
       <dl>
         <dt>Nome:</dt>
@@ -128,6 +144,7 @@
         <dt>Parentesco:</dt>
         <dd>
           <select id='beneficiaryRelationship'>
+            <option value="mother">Mãe</option>
             <option value="father">Pai</option>
             <option value="daughter">Filha</option>
             <option value="son">Filho</option>
