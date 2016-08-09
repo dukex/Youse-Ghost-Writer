@@ -34,12 +34,10 @@ chrome.storage.sync.get(null, function(items) {
     return elements;
   }
 
-  function setJobRole(name, value) {
-    var elements = fill_in(name, value);
-    setTimeout(function(){
-      $('.job-roles-autocomplete__item.ui-menu-item').trigger('click');
-    }, delay);
-
+  function setJobRole(name, jobName) {
+    var value = $('[name="' + name + '"] option:contains(' + jobName + ')').val();
+    var elements = select(name, value);
+    elements.trigger('change.select2');
     return elements;
   }
 
